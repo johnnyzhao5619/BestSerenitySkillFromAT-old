@@ -93,21 +93,21 @@ Pick the command for your agent:
 
 ```bash
 # Codex — Tell Codex:
-"Pull yux1azhengye/BestSerenitySkillFromAT from GitHub and install root SKILL.md as a skill"
+"Pull johnnyzhao5619/BestSerenitySkillFromAT from GitHub and install root SKILL.md as a skill"
 
 # skills.sh (Codex universal)
-npx skills add yux1azhengye/BestSerenitySkillFromAT
+npx skills add johnnyzhao5619/BestSerenitySkillFromAT
 
 # Claude Code (global, works from any directory)
-git clone https://github.com/yux1azhengye/BestSerenitySkillFromAT.git ~/.claude/skills/serenity-unified-skill
+git clone https://github.com/johnnyzhao5619/BestSerenitySkillFromAT.git ~/.claude/skills/serenity-unified-skill
 # For English version, swap the entry point:
 cp ~/.claude/skills/serenity-unified-skill/SKILL.en.md ~/.claude/skills/serenity-unified-skill/SKILL.md
 
 # Cursor
-git clone https://github.com/yux1azhengye/BestSerenitySkillFromAT.git /tmp/serenity && cp /tmp/serenity/SKILL.en.md .cursor/rules/serenity-unified.mdc
+git clone https://github.com/johnnyzhao5619/BestSerenitySkillFromAT.git /tmp/serenity && cp /tmp/serenity/SKILL.en.md .cursor/rules/serenity-unified.mdc
 
 # Gemini CLI
-git clone https://github.com/yux1azhengye/BestSerenitySkillFromAT.git /tmp/serenity && cp /tmp/serenity/SKILL.en.md GEMINI.md
+git clone https://github.com/johnnyzhao5619/BestSerenitySkillFromAT.git /tmp/serenity && cp /tmp/serenity/SKILL.en.md GEMINI.md
 ```
 
 ### Trigger Examples
