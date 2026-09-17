@@ -246,7 +246,11 @@ Step 0 范围门 -> Step 1 锁周期+画栈 -> Step 2 卡点定位+判据
 
 基于 6,120 条帖子的实证分析。提供注意力动量 (升温标的、新进、重仓核心、主题轮动)。候选发生器 + 检查清单，不是预言机。
 
+> 以下脚本**不在本仓库内**，需先克隆 [lanfuli/aleabito-serenity-skills](https://github.com/lanfuli/aleabito-serenity-skills) 并在其根目录运行；需要 X API token (在 `~/.follow-aleabito/.env` 中设置 `X_BEARER_TOKEN`)。
+
 ```bash
+git clone https://github.com/lanfuli/aleabito-serenity-skills.git lanfuli-aleabito-serenity-skills
+cd lanfuli-aleabito-serenity-skills
 node skills/follow-aleabito/scripts/analyze-mentions.js --incremental
 node skills/serenity-radar/scripts/radar.js --window 14 --top 12
 ```
@@ -257,9 +261,14 @@ node skills/serenity-radar/scripts/radar.js --window 14 --top 12
 
 完全本地化运行 + Web Dashboard 可视化。
 
+> 以下脚本**不在本仓库内**，需先克隆 [haskaomni/serenity](https://github.com/haskaomni/serenity) 并在其根目录运行。
+
 ```bash
-python3 scripts/ingest.py all --max-pages 10 --days 500 --min-mentions 3
-python3 scripts/server.py --port 8787
+git clone https://github.com/haskaomni/serenity.git haskaomni-serenity
+cd haskaomni-serenity
+python3 -m venv .venv && .venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python scripts/ingest.py all --max-pages 10 --days 500 --min-mentions 3
+.venv/bin/python scripts/server.py --port 8787
 ```
 
 ---

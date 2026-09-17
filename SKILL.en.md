@@ -53,7 +53,7 @@ What you produce is a **professional investment research report**. Borrow Sereni
 - **Teaching happens by "actually running the method":** readers learn by watching how you go from capex to chokepoint, how you value — not from labels like "per the Serenity framework."
 - **Conclusion first, judgment visible:** call out which criteria are hit / which red flags are triggered (one-liner, don't pile on a checklist); every factual number gets a "what this means."
 - **Serenity himself surfaces on demand only:** mention him only when the user explicitly asks "what does he think" or wants to bet based on his track record; otherwise, not a word.
-- **Object routing:** single stock → single-stock report structure (see `templates/single-stock-report.md`); a sector/theme → sector report structure (see `templates/sector-report.md`). Both go through the mandatory independent review as the final step.
+- **Object routing:** single stock → single-stock report structure (see `skills/serenity-unified/templates/single-stock-report.md`); a sector/theme → sector report structure (see `skills/serenity-unified/templates/sector-report.md`). Both go through the mandatory independent review as the final step.
 
 ### Anti-Confirmation-Bias (Built-in, Mandatory)
 
@@ -100,7 +100,7 @@ Defaults: supercycle = AI infrastructure buildout; horizon = 6-18 months; region
 
 **Map the Stack**: Draw 6-9 layers (end-user → networking → modules → devices/lasers → test → foundry/packaging → epi/equipment → materials/substrates); trace upstream hop by hop along known supplier relationships; use OSINT clues (supplier page additions/removals, CFO slips, ecosystem PPTs, RFQs, investment decks, acquisition inheritance) to infer undisclosed relationships. Ask: if this layer stopped production tomorrow, how many weeks/quarters/years would downstream wait? Drill further down: module → device/laser → epiwafer → substrate → feedstock → raw material spot; is it a single point of failure? Any superimposed geopolitical single-choke?
 
-> Supply chain map reference: `knowledge/supply-chain-map.md`
+> Supply chain map reference: `skills/serenity-unified/knowledge/supply-chain-map.md`
 
 ### Step 2: Chokepoint Location + Criteria (More Hits = Higher Conviction)
 
@@ -178,7 +178,7 @@ Strength hierarchy: financials/transcript/IR > supplier list changes/design-win/
 - **Knowledge cutoff statement**: if unable to access real-time data online, explicitly declare knowledge cutoff date; mark training-data-based numbers as `[Knowledge Base · as of YYYY-MM]`.
 - **Iron rule**: always separate `Confirmed / Management Claim / My Inference / Pure Speculation`; `Confirmed` must have a citable primary source, otherwise downgrade.
 
-> A-share data discipline (CNINFO / earnings previews / inquiry letters, etc.) — see `knowledge/market-adaptation.md`
+> A-share data discipline (CNINFO / earnings previews / inquiry letters, etc.) — see `skills/serenity-unified/knowledge/market-adaptation.md`
 
 ### Step 6: Synthesis — "Is It Worth Investing?" (Core Deliverable)
 
@@ -233,11 +233,11 @@ The following files contain detailed reference material — consult as needed du
 
 | File | Content | When to Consult |
 |------|---------|----------------|
-| `knowledge/market-adaptation.md` | A-share / US / global market adaptation, data discipline, toolkits | When analyzing non-US markets |
-| `knowledge/mental-models.md` | Mental models, decision heuristics, expression DNA, honesty boundaries | When needing cognitive framework reference |
-| `knowledge/supply-chain-map.md` | AI infrastructure / photonics / semiconductor supply chain maps | When mapping stacks and locating chokepoints |
-| `templates/single-stock-report.md` | Single-stock report structure and tier quantification standards | When outputting single-stock analysis |
-| `templates/sector-report.md` | Sector report structure | When outputting sector/theme analysis |
+| `skills/serenity-unified/knowledge/market-adaptation.md` | A-share / US / global market adaptation, data discipline, toolkits | When analyzing non-US markets |
+| `skills/serenity-unified/knowledge/mental-models.md` | Mental models, decision heuristics, expression DNA, honesty boundaries | When needing cognitive framework reference |
+| `skills/serenity-unified/knowledge/supply-chain-map.md` | AI infrastructure / photonics / semiconductor supply chain maps | When mapping stacks and locating chokepoints |
+| `skills/serenity-unified/templates/single-stock-report.md` | Single-stock report structure and tier quantification standards | When outputting single-stock analysis |
+| `skills/serenity-unified/templates/sector-report.md` | Sector report structure | When outputting sector/theme analysis |
 
 ---
 
@@ -247,7 +247,11 @@ The following files contain detailed reference material — consult as needed du
 
 Empirical analysis based on 6,120 posts. Provides attention momentum (heating-up tickers, new entries, core heavy positions, theme rotation). Candidate generator + checklist, not an oracle.
 
+> These scripts are **not in this repository**. Clone [lanfuli/aleabito-serenity-skills](https://github.com/lanfuli/aleabito-serenity-skills) first and run them from its root; an X API token is required (set `X_BEARER_TOKEN` in `~/.follow-aleabito/.env`).
+
 ```bash
+git clone https://github.com/lanfuli/aleabito-serenity-skills.git lanfuli-aleabito-serenity-skills
+cd lanfuli-aleabito-serenity-skills
 node skills/follow-aleabito/scripts/analyze-mentions.js --incremental
 node skills/serenity-radar/scripts/radar.js --window 14 --top 12
 ```
@@ -258,9 +262,14 @@ Risks: survivorship bias, single-account fragility.
 
 Fully local operation + Web Dashboard visualization.
 
+> These scripts are **not in this repository**. Clone [haskaomni/serenity](https://github.com/haskaomni/serenity) first and run them from its root.
+
 ```bash
-python3 scripts/ingest.py all --max-pages 10 --days 500 --min-mentions 3
-python3 scripts/server.py --port 8787
+git clone https://github.com/haskaomni/serenity.git haskaomni-serenity
+cd haskaomni-serenity
+python3 -m venv .venv && .venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python scripts/ingest.py all --max-pages 10 --days 500 --min-mentions 3
+.venv/bin/python scripts/server.py --port 8787
 ```
 
 ---

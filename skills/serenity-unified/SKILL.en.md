@@ -247,7 +247,11 @@ The following files contain detailed reference material — consult as needed du
 
 Empirical analysis based on 6,120 posts. Provides attention momentum (heating-up tickers, new entries, core heavy positions, theme rotation). Candidate generator + checklist, not an oracle.
 
+> These scripts are **not in this repository**. Clone [lanfuli/aleabito-serenity-skills](https://github.com/lanfuli/aleabito-serenity-skills) first and run them from its root; an X API token is required (set `X_BEARER_TOKEN` in `~/.follow-aleabito/.env`).
+
 ```bash
+git clone https://github.com/lanfuli/aleabito-serenity-skills.git lanfuli-aleabito-serenity-skills
+cd lanfuli-aleabito-serenity-skills
 node skills/follow-aleabito/scripts/analyze-mentions.js --incremental
 node skills/serenity-radar/scripts/radar.js --window 14 --top 12
 ```
@@ -258,9 +262,14 @@ Risks: survivorship bias, single-account fragility.
 
 Fully local operation + Web Dashboard visualization.
 
+> These scripts are **not in this repository**. Clone [haskaomni/serenity](https://github.com/haskaomni/serenity) first and run them from its root.
+
 ```bash
-python3 scripts/ingest.py all --max-pages 10 --days 500 --min-mentions 3
-python3 scripts/server.py --port 8787
+git clone https://github.com/haskaomni/serenity.git haskaomni-serenity
+cd haskaomni-serenity
+python3 -m venv .venv && .venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python scripts/ingest.py all --max-pages 10 --days 500 --min-mentions 3
+.venv/bin/python scripts/server.py --port 8787
 ```
 
 ---
